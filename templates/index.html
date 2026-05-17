@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Remove Background</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="left-section">
+        <h1>Remove Background</h1>
+        <p>Upload gambar dan hapus background otomatis .</p>
+        <img
+          src="{{ url_for('static', filename='images/bg-remove.png') }}"
+          class="hero-image"
+        />
+      </div>
+      <div class="right-section">
+        <form id="uploadForm" method="POST" enctype="multipart/form-data">
+          <div class="upload-box">
+            <input type="file" name="image" id="imageInput" hidden />
+            <label for="imageInput" class="upload-label">
+              <span>Pilih Gambar</span>
+            </label>
+            <p id="fileName">Belum ada file dipilih</p>
+          </div>
+          <button type="submit" class="btn">Remove Background</button>
+        </form>
+        <div id="loading" class="loading hidden">
+          <div class="spinner"></div>
+          <p>Sedang memproses gambar...</p>
+        </div>
+        {% if hasil_gambar %}
+        <div class="result-box">
+          <h2>Hasil Remove Background</h2>
+          <img
+            src="{{ url_for('static', filename=hasil_gambar) }}"
+            id="resultImage"
+          />
+          <a
+            href="{{ url_for('static', filename=hasil_gambar) }}"
+            download
+            class="download-btn"
+          >
+            Download Hasil</a
+          >
+        </div>
+        {% endif %}
+        <div class="result-box hidden" id="resultBox">
+          <img id="resultImage" />
+          <a id="downloadBtn" download class="download-btn"> Download Hasil </a>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p>&copy; 2026 - Dibuat oleh Rendi Sanjana | Background Remover</p>
+    </footer>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>

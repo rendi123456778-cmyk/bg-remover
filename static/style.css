@@ -1,0 +1,275 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  flex-direction: column;
+  background: #f9fafb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  min-height: 600px;
+  /* Menghilangkan efek glassmorphism yang terlalu kuat, beralih ke warna solid bersih */
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  /* Bayangan lembut untuk efek melayang */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.8s ease;
+}
+
+.left-section {
+  flex: 1;
+  /* Background abu-abu solid namun tetap terang untuk area konten utama */
+  background: #cacaca;
+  color: #374151; /* Warna teks abu-abu gelap (Charcoal) */
+  padding: 60px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Meratakan teks ke kiri sesuai gambar referensi */
+  text-align: left;
+}
+
+.left-section h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  color: #1f2937; /* Warna heading lebih gelap sedikit */
+}
+
+.left-section p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  color: #4b5563; /* Warna sub-teks abu-abu medium */
+}
+
+/* Penyesuaian gambar agar menyatu lebih natural (sesuai foto contoh) */
+.hero-image {
+  width: 100%;
+  max-width: 350px;
+  object-fit: contain; /* Memastikan gambar tidak terpotong */
+  /* MENAMBAHKAN: Kelengkungan sisi agar tidak tajam */
+  border-radius: 40px;
+  overflow: hidden;
+  /* Menghapus filter: drop-shadow yang berlebihan, ganti dengan shadow halus */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+
+  /* MENAMBAHKAN: Animasi gerak gerak dinamis */
+  animation: floatWobble 6s ease-in-out infinite;
+  transition: all 0.5s ease; /* Transisi halus saat interaksi lain */
+}
+
+/* Animasi baru: Mengambang + Sedikit Putaran */
+@keyframes floatWobble {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(2deg); /* More float, slight tilt */
+  }
+}
+
+.right-section {
+  flex: 1;
+  /* Background sedikit kontras (Off-white) untuk area upload */
+  background: #cacaca;
+  padding: 60px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-top-left-radius: 0; /* Memberi kurva pembatas yang halus */
+  border-bottom-left-radius: 0;
+}
+
+.upload-box {
+  /* Style card yang bersih dengan border putih tebal (seperti di referensi) */
+  background: #ffffff;
+  border: none;
+  padding: 60px 40px;
+  border-radius: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+.upload-label {
+  /* Tombol primer di dalam card menggunakan warna biru (sesuai referensi gambar) */
+  background: #2563eb; /* Biru terang khas UI modern */
+  color: #ffffff;
+  padding: 14px 32px;
+  border-radius: 50px; /* Rounded pill shape */
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-block;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+
+  /* MENAMBAHKAN: Transisi transisi untuk hover yang lebih halus */
+  transition: all 0.4s ease;
+}
+
+/* MENAMBAHKAN: Animasi hover untuk upload-label */
+.upload-label:hover {
+  background: #1d4ed8;
+  transform: scale(1.08) translateY(-3px); /* Membesar dan mengangkat sedikit */
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+}
+
+#fileName {
+  margin-top: 15px;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+/* MENAMBAHKAN: Mengaktifkan kembali tombol utama .btn dengan style charcoal elegan */
+.btn {
+  display: block; /* Tampilkan kembali */
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 18px;
+  /* Gradien charcoal sesuai permintaan sebelumnya */
+  background: linear-gradient(135deg, #4b5563 0%, #1f2937 100%);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Muted shadow */
+
+  /* MENAMBAHKAN: Transisi transisi untuk hover yang lebih halus */
+  transition: all 0.4s ease;
+}
+
+/* MENAMBAHKAN: Animasi hover untuk .btn */
+.btn:hover {
+  transform: translateY(-5px); /* Mengangkat lebih tinggi */
+  background: linear-gradient(
+    135deg,
+    #526176 0%,
+    #111827 100%
+  ); /* Gradien sedikit lebih terang */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* MENAMBAHKAN: Animasi hover untuk download-btn agar seragam */
+.download-btn {
+  /* Mengikuti skema warna abu-abu */
+  background: linear-gradient(135deg, #4b5563 0%, #1f2937 100%);
+  color: white;
+  padding: 12px 25px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  transition: all 0.4s ease; /* Transisi halus */
+}
+
+.download-btn:hover {
+  background: linear-gradient(135deg, #526176 0%, #111827 100%);
+  transform: translateY(-3px); /* Mengangkat sedikit */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Mengatur ulang style Loading Spinner agar cocok dengan tema baru */
+.loading {
+  margin-top: 30px;
+  text-align: center;
+}
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #e5e7eb;
+  border-top: 4px solid #2563eb; /* Warna aksen biru */
+  border-radius: 50%;
+  margin: auto;
+  animation: spin 1s linear infinite;
+}
+
+.hidden {
+  display: none;
+}
+
+.result-box {
+  margin-top: 30px;
+  text-align: center;
+  animation: fadeIn 1s ease;
+}
+.result-box img {
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* HAPUS: Animasi float lama */
+/* @keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+} */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsif */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+  }
+  .left-section {
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+  }
+  .right-section {
+    padding: 40px 20px;
+    border-radius: 0; /* Menghapus kurva pembatas di tampilan mobile */
+  }
+  .left-section h1 {
+    font-size: 2.5rem;
+  }
+}
+
+footer {
+  margin-top: 40px;
+  width: 100%;
+  text-align: center;
+}
+
+footer p {
+  color: #6b7280; /* Warna teks abu-abu elegan */
+  font-size: 0.9rem; /* Ukuran teks sedikit lebih kecil */
+  font-weight: 500;
+  letter-spacing: 0.5px; /* Jarak antar huruf biar lebih rapi */
+}
